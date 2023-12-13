@@ -72,6 +72,10 @@ app.get('*', (req, res) => {
   res.sendFile(join(__dirname, "../frontend/build", "index.html"));
 });
 
+app.use((req, res, next) => {
+  res.status(404).send("Sorry, the page you're looking for doesn't exist.");
+});
+
 // Other routes
 app.get('/', (req, res) => {
   res.status(200).send('Welcome To MERN Stack Tutorial');
